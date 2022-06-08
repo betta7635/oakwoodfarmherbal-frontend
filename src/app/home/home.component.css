@@ -1,0 +1,41 @@
+#home {
+  background-image: url(src/assets/pexels-palo-cech-286763.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100% 100%;
+  z-index: 10;
+  padding-bottom: 20px;
+  overflow: 100% auto;
+}
+#jumbotron {
+  background-color: #f2e9f7 !important;
+  height: 100%vh;
+  width: 80%;
+  margin-bottom: 50px;
+  margin-top: 10px;
+  padding-bottom: 25px;
+  padding-top: 40px;
+  display: flexbox;
+  border-radius: 50% 20% / 10% 40%;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+.jumboline {
+  color: green;
+  width: 95%;
+  justify-self: center;
+}
+#jumbotron-buttons {
+  position: relative;
+  align-self: center;
+  margin-left: 20%;
+}
+button {
+  margin: 5%;
+}
+button:hover {
+  font-family: "Lucida Handwriting", cursive;
+  color: green;
+}

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg" id="navigation">
+  <!-- brand -->
+  <nav class="navbar bg">
+    <span class="navbar-brand mb-0 h1" id="brand" (window:resize)="collapsed=true">Oakwood Farm Herbal</span>
+  </nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- home -->
+      <li class="nav-item active">
+        <a class="nav-link" style="cursor: pointer">Home</a>
+      </li>
+      <!-- authorization -->
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer">My Account</a>
+      </li>
+      <!-- if logged in -->
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" style="cursor: pointer">My Garden Plans</a>
+      </li>
+      <!-- if logged in -->
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" style="cursor: pointer">My Plant Collection</a>
+      </li>
+      <!-- if logged in -->
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" style="cursor: pointer">My Seed Collection</a>
+      </li>
+      <!-- if logged in -->
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" style="cursor: pointer">My Wishlist</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
