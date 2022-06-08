@@ -1,0 +1,25 @@
+#myCarousel {
+  margin-left: 15%;
+  margin-right: 15%;
+  height: 100% auto;
+  width: 100% auto;
+}
+.carousel {
+  transition-duration: 5000;
+}
+img {
+  height: 20rem;
+  width: auto;
+}
+.carousel-caption {
+  color: white;
+}
+.h5 {
+  font-weight: bold;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  color: white;
+  font-weight: bold;
+  opacity: 100%;
+}

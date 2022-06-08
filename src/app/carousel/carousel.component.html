@@ -1,1 +1,54 @@
-<p>carousel works!</p>
+
+<div class="container-fluid">
+  <div id="myCarousel" class="carousel slide carousel-fade" data-bs-pause="hover" data-bs-wrap="true" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- slide 1 -->
+      <div class="carousel-item active" >
+        <img [src]="path1" class="d-block w-100" [alt]="alttext1"/>
+        <div class="carousel-caption d-none d-md-block" style="text-align: center">
+          <h5>Butchart Gardens</h5>
+          <p>Brentwood Bay, British Columbia, Canada</p>
+        </div>
+      </div>
+      <!-- slide 2 -->
+      <div class="carousel-item">
+        <img [src]="path2" class="d-block w-100" [alt]="alttext2"/>
+        <div class="carousel-caption d-none d-md-block" style="text-align: center">
+          <h5>Doi Tung Gardens</h5>
+          <p>Chiang Rai Village, Thailand</p>
+        </div>
+      </div>
+      <!-- slide 3 -->
+      <div class="carousel-item">
+        <img [src]="path3" class="d-block w-100" [alt]="alttext3"/>
+        <div class="carousel-caption d-none d-md-block" style="text-align: center">
+          <h5>Tulip Gardens</h5>
+          <p>Unknown Location</p>
+        </div>
+      </div>
+      <!-- slide 4 -->
+      <div class="carousel-item">
+        <img [src]="path4" class="d-block w-100" [alt]="alttext4"/>
+        <div class="carousel-caption d-none d-md-block" style="text-align: center">
+          <h5>Keukenhof Gardens</h5>
+          <p>Lisse, Netherlands</p>
+        </div>
+      </div>
+      <!-- slide 5 -->
+      <div class="carousel-item">
+        <img [src]="path5" class="d-block w-100" [alt]="alttext5"/>
+        <div class="carousel-caption d-none d-md-block" style="text-align: center">
+          <h5>Valley Gardens</h5>
+          <p>Harrogate, England</p>
+        </div>
+      </div>
+      </div>
+      <!-- controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
