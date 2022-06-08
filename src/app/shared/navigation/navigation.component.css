@@ -1,0 +1,15 @@
+#navigation {
+  background-color: #f2e9f7 !important;
+}
+#brand {
+  background-color: #f2e9f7 !important;
+  color: green;
+  font-family: "Lucida Handwriting", cursive;
+  font-weight: bold;
+  padding: 0%;
+  margin: 0, 1rem, 0, 1rem;
+}
+.nav-link:hover {
+  font-family: "Lucida Handwriting", cursive;
+  color: green;
+}
