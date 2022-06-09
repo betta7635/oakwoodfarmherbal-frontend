@@ -1,1 +1,24 @@
-<p>plan-index works!</p>
+<!-- loop through individual plans -->
+<div class="container-fluid" id="plan-index">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>My Garden Plans</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <p>Please select a plan for more details.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-md-4" *ngFor="let planElement of myPlans; let i=index">
+      <app-plan [plan]="planElement" [idx]="i"></app-plan>
+    </div>
+  </div>
+  <div class="row">
+    <!-- redirect to new plan form -->
+    <button type="submit" id="save" style="cursor: pointer" (click)="onCreatePlan()">Create Plan</button>
+    <!-- cancel and redirect to profile -->
+    <button type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+  </div>
+</div>

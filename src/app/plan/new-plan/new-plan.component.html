@@ -1,1 +1,18 @@
-<p>new-plan works!</p>
+<!-- direct to plan form to create new plan id -->
+<div class="container-fluid" id="new-plan">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>Create a New Garden Plan</h3>
+    </div>
+  </div>
+  <div class="row">
+    <app-plan-form></app-plan-form>
+  </div>
+  <!-- button row -->
+  <div class="row">
+    <!-- save new plan id and redirect to plan id details -->
+    <button type="submit" id="save" style="cursor: pointer" (click)="onSavePlan(plan)">Save Plan</button>
+    <!-- cancel and redirect to plan index -->
+    <button type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+  </div>
+</div>

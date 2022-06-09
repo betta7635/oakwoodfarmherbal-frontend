@@ -1,1 +1,21 @@
-<p>plan works!</p>
+<!-- individual plan to be looped on plan index -->
+<div class="container-fluid" id="plan-container">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <div class="card">
+        <!-- link to redirect to plan id for details -->
+        <div class="card-header">
+          <a id="view" style="cursor: pointer" (click)="onPlanSelected()">{{ plan.planName }}</a>
+        </div>
+        <div class="card-body">
+          <img class="img-responsive"
+            style="max-height: 50px;"
+            src="{{ plan.photoImagePath }}"
+            alt="{{ plan.planName }}"/>
+          <h5 class="card-location">Plan Location: {{ plan.planLocation }}</h5>
+          <h5 class="card-description">Plan Description: {{ plan.planDescription }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
