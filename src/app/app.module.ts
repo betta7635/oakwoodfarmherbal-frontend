@@ -11,6 +11,7 @@ import { EditWishlistComponent } from './wishlist/edit-wishlist/edit-wishlist.co
 import { EditPlantComponent } from './plant/edit-plant/edit-plant.component';
 import { HomeComponent } from './home/home.component';
 import { InfoFormComponent } from './shared/info-form/info-form.component';
+import { LibraryComponent } from './library/library.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { NewPlanComponent } from './plan/new-plan/new-plan.component';
 import { NewPlantComponent } from './plant/new-plant/new-plant.component';
@@ -23,6 +24,7 @@ import { PlanIndexComponent } from './plan/plan-index/plan-index.component';
 import { PlantComponent } from './plant/plant.component';
 import { PlantDetailsComponent } from './plant/plant-details/plant-details.component';
 import { PlantIndexComponent } from './plant/plant-index/plant-index.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SearchFormComponent } from './shared/search-form/search-form.component';
 import { SeedComponent } from './seed/seed.component';
 import { SeedDetailsComponent } from './seed/seed-details/seed-details.component';
@@ -31,7 +33,6 @@ import { UserComponent } from './shared/user/user.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { WishlistDetailsComponent } from './wishlist/wishlist-details/wishlist-details.component';
 import { WishlistIndexComponent } from './wishlist/wishlist-index/wishlist-index.component';
-
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { WishlistIndexComponent } from './wishlist/wishlist-index/wishlist-index
     EditWishlistComponent,
     HomeComponent,
     InfoFormComponent,
+    LibraryComponent,
     NavigationComponent,
     NewPlanComponent,
     NewPlantComponent,
@@ -56,6 +58,7 @@ import { WishlistIndexComponent } from './wishlist/wishlist-index/wishlist-index
     PlantComponent,
     PlantDetailsComponent,
     PlantIndexComponent,
+    ProfileComponent,
     SearchFormComponent,
     SeedComponent,
     SeedDetailsComponent,

@@ -1,1 +1,22 @@
-<p>edit-plan works!</p>
+<!-- direct to plan-form for editing -->
+<div class="container-fluid" id="edit-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>Edit My Garden Plan</h3>
+    </div>
+  </div>
+  <div class="row">
+    <app-plan-form *ngIf="selectedPlan" [plan]="selectedPlan"></app-plan-form>
+  </div>
+  <!-- button row -->
+  <div class="row">
+    <div class="col-sm-4 col-lg-4">
+      <!-- save current plan id and redirect to id details -->
+      <button type="submit" id="save" style="cursor: pointer" (click)="onSavePlan(plan)">Save Plan</button>
+      <!-- cancel and redirect to current plan id -->
+      <button type="button" id="cancel" style="cursor: pointer">Cancel</button>
+      <!-- delete current plan id and redirect to plan index -->
+      <button type="button" id="delete" style="cursor: pointer" (click)="onDeletePlan(index)">Delete Plan</button>
+    </div>
+  </div>
+</div>
