@@ -31,6 +31,8 @@ import { WishlistIndexComponent } from './wishlist/wishlist-index/wishlist-index
 import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { FormsModule } from '@angular/forms';
+import { LibraryComponent } from './library/library.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { FormsModule } from '@angular/forms';
     WishlistDetailsComponent,
     WishlistIndexComponent,
     HomeComponent,
-    CarouselComponent
+    CarouselComponent,
+    LibraryComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

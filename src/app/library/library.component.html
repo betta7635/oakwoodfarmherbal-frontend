@@ -1,0 +1,39 @@
+<!-- view search results of all saved plants/seeds/wishlist items -->
+<div class="container-fluid" id="library">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>Library Search Results</h3>
+    </div>
+  </div>
+  <div class="row">
+    <!-- loop all info items -->
+    <div class="col-sm-4 col-md-4">
+      <!-- img -->
+      <img class="img-responsive"
+        style="max-height: 50px;"
+        src="{{ info.photoImagePath }}"
+        alt="{{ info.primaryCommonName }}"/>
+      <!-- details -->
+      <h5>Common Plant Name: {{ info.primaryCommonName }}</h5>
+      <h5>Scientific Plant Name: {{ info.formattedScientificName }}</h5>
+      <h5>Color: {{ info.color }}</h5>
+      <h5>Life Cycle: {{ info.duration }}</h5>
+      <h5>Source: {{ info.source }}</h5>
+      <h5>Description: {{ info.description }}</h5>
+      <h5>Uses: {{ info.uses }}</h5>
+      <h5>History and Conservation: {{ info.conservationInfo }}</h5>
+      <h5>Notes: {{ info.notes }}</h5>
+    </div>
+  </div>
+  <!-- button row -->
+  <div class="row">
+    <!-- save to myPlants and redirect to plant index -->
+    <button type="button" id="save" (click)="onSavePlant(plant)">Save to My Plants</button>
+    <!-- save to mySeeds and redirect to seed index -->
+    <button type="button" id="save" (click)="onSaveSeed(seed)">Save to My Seeds</button>
+    <!-- save to myWishlists and redirect to wishlist index -->
+    <button type="button" id="save" (click)="onSaveWishlist(wishlist)">Save to My Wishlist</button>
+    <!-- cancel and redirect to profile -->
+    <button type="button" id="cancel">Cancel</button>
+  </div>
+</div>
