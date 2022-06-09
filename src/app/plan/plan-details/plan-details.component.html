@@ -1,1 +1,35 @@
-<p>plan-details works!</p>
+<!-- details of plan selected on plan index -->
+<div class="container-fluid" id="plan-details">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>My Garden Plan Details</h3>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="selectedPlan" [plan]="selectedPlan">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <!-- img -->
+        <img class="img-responsive"
+          style="max-height: 50px;"
+          src="{{ selectedPlan.photoImagePath }}"
+          alt="{{ selectedPlan.planName }}"/>
+        <!-- details -->
+        <h5>Plan Name: {{ selectedPlan.planName }}</h5>
+        <h5>Location: {{ selectedPan.planLocation }}</h5>
+        <h5>Plant Used: {{ selectedPlant.primaryCommonName }} / Amount: {{ selectedPlant.amount }}</h5>
+        <h5>Seed Used: {{ selectedSeed.primaryCommonName }} / Amount: {{ selectedSeed.amount }}</h5>
+        <h5>Description: {{ selectedPlan.planDescription }}</h5>
+        <h5>Notes: {{ selectedPlan.planNotes }}</h5>
+      </div>
+    </div>
+  </div>
+  <!-- button row -->
+  <div class="row">
+    <!-- redirect to plan form to edit -->
+    <button type="button" id="edit" style="cursor: pointer" (click)="onEditPlan()">Edit Plan</button>
+    <!-- cancel and redirect to plan index -->
+    <button type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+    <!-- delete current plan id and redirect to plan index -->
+    <button type="button" id="delete" style="cursor: pointer" (click)="onDeletePlan(index)">Delete Plan</button>
+  </div>
+</div>
