@@ -1,1 +1,37 @@
-<p>plant-details works!</p>
+<!-- details of plant selected on plant-index -->
+<div class="container-fluid" id="detail-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>My Plant Details</h3>
+    </div>
+  </div>
+  <div class="container" *ngIf="selectedPlant" [plant]="selectedPlant">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <!-- img -->
+        <img class="img-responsive"
+              style="max-height: 50px;"
+              src="{{ info.photoImagePath }}"
+              alt="{{ info.primaryCommonName }}"/>
+        <!-- details -->
+        <h5>Common Plant Name: {{ info.primaryCommonName }}</h5>
+        <h5>Scientific Plant Name: {{ info.formattedScientificName }}</h5>
+        <h5>Color: {{ info.color }}</h5>
+        <h5>Life Cycle: {{ info.duration }}</h5>
+        <h5>Source: {{ info.source }}</h5>
+        <h5>Description: {{ info.description }}</h5>
+        <h5>Uses: {{ info.uses }}</h5>
+        <h5>History and Conservation: {{ info.conservationInfo }}</h5>
+        <h5>Notes: {{ info.notes }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- redirect to edit current plant id form -->
+    <button class="btn btn-light" type="button" id="edit" style="cursor: pointer" (click)="onEditPlant(plant)">Edit Plant</button>
+    <!-- cancel and redirect to plant index -->
+    <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+    <!-- delete plant id and redirect to plant index -->
+    <button class="btn btn-light" type="button" id="delete" style="cursor: pointer" (click)="onDeletePlant(index)">Delete Plant</button>
+  </div>
+

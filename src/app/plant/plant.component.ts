@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Info } from '../shared/info-form/info.model';
+import { Plant } from './plant.model';
 
 @Component({
   selector: 'app-plant',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plant.component.css']
 })
 export class PlantComponent implements OnInit {
+  plant: Plant;
+  @Input() info: Info;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onPlantSelected() {
+
   }
 
 }
