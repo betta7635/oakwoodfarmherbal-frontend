@@ -1,1 +1,23 @@
-<p>plant works!</p>
+<!-- individual plant to be looped on plant-index -->
+<div class="container-fluid" id="plant-container">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header">
+          <!-- redirect to plant id details -->
+          <a class="btn btn-light" id="view" style="cursor: pointer" (click)="onPlantSelected()">{{ info.primaryCommonName }}</a>
+        </div>
+        <div class="card-body">
+          <img class="img-responsive"
+            style="max-height: 50px;"
+            src="{{ info.photoImagePath }}"
+            alt="{{ info.primaryCommonName }}"/>
+          <h5 class="card-common">Common Plant Name: {{ info.primaryCommonName }}</h5>
+          <h5 class="card-scientific">Scientific Plant Name: {{ info.formattedScientificName }}</h5>
+          <h5 class="card-description">Plant Description: {{ info.description }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
