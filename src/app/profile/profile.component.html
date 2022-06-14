@@ -1,1 +1,54 @@
-<p>profile works!</p>
+<!-- MyPlans, MyPlants, MySeedShare, MyWishlist -->
+<!-- ...counts of each and links to index of each-->
+<div class="container-fluid" id="index-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>My Profile</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 col-md-3">
+      <!-- MyPlans -->
+      <div class="card">
+        <div class="card-header">
+          <!-- redirect to view plan index -->
+          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/plan-index" routerLinkActive="active">My Garden Plans</a>
+        </div>
+        <div class="card-body">
+          <h5 *ngIf="isAuthenticated">Plan Count: {{ currentUser.planCount }}</h5>
+        </div>
+      </div>
+      <!-- MyPlants -->
+      <div class="card">
+        <div class="card-header">
+          <!-- redirect to view plant index -->
+          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/plant-index" routerLinkActive="active">My Plant Collection</a>
+        </div>
+        <div class="card-body">
+          <h5 *ngIf="isAuthenticated">Plant Count: {{ currentUser.plantCount }}</h5>
+        </div>
+      </div>
+      <!-- MySeeds -->
+      <div class="card">
+        <div class="card-header">
+          <!-- redirect to view seed index -->
+          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/seed-index" routerLinkActive="active">My Seed Collection</a>
+        </div>
+        <div class="card-body">
+          <h5 *ngIf="isAuthenticated">Seed Count: {{ currentUser.seedCount }}</h5>
+        </div>
+      </div>
+      <!-- MyWishlist -->
+      <div class="card">
+        <div class="card-header">
+          <!-- redirect to view wishlist index -->
+          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/wishlist-index" routerLinkActive="active">My Wishlist</a>
+        </div>
+        <div class="card-body">
+          <h5 *ngIf="isAuthenticated">Wishlist Item Count: {{ currentUser.wishlistCount}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
