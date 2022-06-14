@@ -1,1 +1,24 @@
-<p>seed-index works!</p>
+<!-- loop through individual seeds -->
+<div class="container-fluid" id="index-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>My Seed Collection</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <p>Please select a seed for more details.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-md-4" *ngFor="let seedElement of mySeeds; let i=index">
+      <app-seed [seed]="seedElement" [idx]="i"></app-seed>
+    </div>
+  </div>
+  <div class="row">
+    <!-- redirect to new seed form   -->
+    <button class="btn btn-light" type="submit" id="save" style="cursor: pointer" (click)="onCreateSeed()">Create Seed</button>
+    <!-- cancel and return to profile -->
+    <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+  </div>
+</div>
