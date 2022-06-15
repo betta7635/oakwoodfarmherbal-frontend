@@ -1,1 +1,37 @@
-<p>wishlist-details works!</p>
+<!-- details of wishlist item selected on wishlist-index -->
+<div class="container-fluid" id="detail-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>My Wishlist Item Details</h3>
+    </div>
+  </div>
+  <div class="container" *ngIf="selectedWishlist" [wishlist]="selectedWishlist">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <!-- img -->
+        <img class="img-responsive"
+              style="max-height: 50px;"
+              src="{{ info.photoImagePath }}"
+              alt="{{ info.primaryCommonName }}"/>
+        <!-- details -->
+        <h5>Common Item Name: {{ info.primaryCommonName }}</h5>
+        <h5>Scientific Item Name: {{ info.formattedScientificName }}</h5>
+        <h5>Color: {{ info.color }}</h5>
+        <h5>Life Cycle: {{ info.duration }}</h5>
+        <h5>Source: {{ info.source }}</h5>
+        <h5>Description: {{ info.description }}</h5>
+        <h5>Uses: {{ info.uses }}</h5>
+        <h5>History and Conservation: {{ info.conservationInfo }}</h5>
+        <h5>Notes: {{ info.notes }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- redirect to item id edit form -->
+    <button class="btn btn-light" type="button" id="edit" style="cursor: pointer" (click)="onEditWishlist(wishlist)">Edit Item</button>
+    <!-- cancel and redirect to wishlist index -->
+    <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+    <!-- delete item id and redirect to wishlist index -->
+    <button class="btn btn-light" type="button" id="delete" style="cursor: pointer" (click)="onDeleteWishlist(index)">Delete Item</button>
+  </div>
+

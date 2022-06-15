@@ -11,11 +11,11 @@
 #jumbotron {
   background-color: #f2e9f7 !important;
   height: 100%vh;
-  width: 80%;
-  margin-bottom: 50px;
-  margin-top: 10px;
+  width: 75%;
+  margin-bottom: 20px;
+  margin-top: 20px;
   padding-bottom: 25px;
-  padding-top: 40px;
+  padding-top: 25px;
   display: flexbox;
   border-radius: 50% 20% / 10% 40%;
   justify-items: center;
@@ -33,7 +33,7 @@
   margin-left: 20%;
 }
 button {
-  margin: 5%;
+  margin: 2%;
 }
 button:hover {
   font-family: "Lucida Handwriting", cursive;
