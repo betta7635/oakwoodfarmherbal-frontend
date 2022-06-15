@@ -1,5 +1,4 @@
 import { EventEmitter, Injectable } from "@angular/core";
-import { AuthService } from "src/app/authorization/auth.service";
 import { Plan } from "src/app/plan/plan.model";
 import { Plant } from "src/app/plant/plant.model";
 import { Seed } from "src/app/seed/seed.model";
@@ -25,10 +24,12 @@ export class UserService {
   isAuthenticated: boolean = false;
   selectedUser: boolean = false;
 
-  constructor(private authService: AuthService) {}
-
   getUsers() {
     return this.myUsers.slice();
+  }
+
+  getUser(idx: number) {
+    return this.myUsers.slice()[idx];
   }
 
   getPlanCount(number) {

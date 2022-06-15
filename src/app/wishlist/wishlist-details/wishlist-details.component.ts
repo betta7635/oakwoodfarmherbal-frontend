@@ -33,19 +33,17 @@ export class WishlistDetailsComponent implements OnInit {
   }
 
   onEditWishlist(wishlist) {
-
     // redirect to current id edit form
 
   }
 
   onCancel() {
-
     // redirect to wishlist index
 
   }
 
   onDeleteWishlist(index) {
-
+    this.wishlistservice.deleteWishlist(index);
     // redirect to wishlist index
 
   }

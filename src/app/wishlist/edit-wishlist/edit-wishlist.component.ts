@@ -32,20 +32,19 @@ export class EditWishlistComponent implements OnInit {
   }
 
   onSaveWishlist(wishlist) {
-    // onsubmit(ngsubmit)??
+    this.wishlistService.saveWishlist(wishlist);
     // redirect to new wishlist id details
-
+    this.wishlistService.wishlistSelected.emit(this.wishlist);
   }
 
   onCancel() {
-
     // redirect to current wishlist id details
-
+    this.wishlistService.wishlistSelected.emit(this.wishlist);
   }
 
   onDeleteWishlist(index) {
-
-    // redirect to wishlistt index
+    this.wishlistService.deleteWishlist(index);
+    // redirect to wishlist index
 
   }
 }

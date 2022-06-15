@@ -19,11 +19,21 @@ export class WishlistComponent implements OnInit {
   constructor(private wishlistService: WishlistService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.route.params.subscribe((params: Params) => {
+      this.idx = +params['id'];
+      this.wishlist = this.wishlistService.getWishlist(this.idx);
+    });
+    this.myWishlists = this.wishlistService.getWishlists();
+    this.wishlistService.wishlistSelected.subscribe((wishlist: Wishlist) => {
+      this.selectedWishlist = wishlist;
+    });
+    this.wishlistService.wishlistIndexChanged.subscribe((wishlists: Wishlist[]) => {
+      this.myWishlists = wishlists;
+    });
   }
 
-  onWishlistSelected() {
-
+  onWishlistSelected(wishlist) {
+    this.wishlistService.wishlistSelected.emit(this.wishlist);
   }
 
 }
