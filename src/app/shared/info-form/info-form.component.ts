@@ -99,9 +99,4 @@ export class InfoFormComponent implements OnInit {
         }
       );
   }
-
-  // form handling
-  onSubmit(infoForm) {
-
-  }
 }

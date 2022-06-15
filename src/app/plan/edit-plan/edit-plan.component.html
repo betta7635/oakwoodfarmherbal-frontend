@@ -14,7 +14,7 @@
       <!-- save current plan id and redirect to id details -->
       <button type="submit" id="save" style="cursor: pointer" (click)="onSavePlan(plan)">Save Plan</button>
       <!-- cancel and redirect to current plan id -->
-      <button type="button" id="cancel" style="cursor: pointer">Cancel</button>
+      <button type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
       <!-- delete current plan id and redirect to plan index -->
       <button type="button" id="delete" style="cursor: pointer" (click)="onDeletePlan(index)">Delete Plan</button>
     </div>

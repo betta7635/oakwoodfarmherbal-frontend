@@ -117,23 +117,13 @@ export class PlanFormComponent implements OnInit {
   onPlanSelected() {
 
   }
-  onSubmit(planForm) {
 
-    // redirect to plan id details
-
-  }
   onAddSeed(index) {
 
   }
   onAddPlant(index) {
 
   }
-  onCancel() {
-
-    // redirect to plan index
-
-  }
-
   onInfoChanged($event) {
 
   }
