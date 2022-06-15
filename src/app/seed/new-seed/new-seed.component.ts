@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Seed } from '../seed.model';
 
 @Component({
   selector: 'app-new-seed',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-seed.component.css']
 })
 export class NewSeedComponent implements OnInit {
+  mySeeds: Seed[] = [];
+  selectedSeed: Seed;
+  seed: Seed;
 
   constructor() { }
 

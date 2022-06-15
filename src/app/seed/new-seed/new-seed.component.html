@@ -1,1 +1,16 @@
-<p>new-seed works!</p>
+<div class="container-fluid" id="edit-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>Create A New Seed</h3>
+    </div>
+  </div>
+  <div class="row">
+    <app-info-form></app-info-form>
+  </div>
+</div>
+<div class="row">
+  <!-- save seed id and redirect to new id details -->
+  <button class="btn btn-light" type="submit" id="save" style="cursor: pointer" (click)="onSaveSeed(seed)">Save Seed</button>
+  <!-- cancel and redirect to seed index -->
+  <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+</div>
