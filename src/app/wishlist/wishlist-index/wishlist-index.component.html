@@ -1,1 +1,24 @@
-<p>wishlist-index works!</p>
+<!-- loop through individual wishlist items -->
+<div class="container-fluid" id="index-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>My Wishlist</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <p>Please select a wishlist item for more details.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-md-4" *ngFor="let wishlistElement of myWishlists; let i=index">
+      <app-wishlist [wishlist]="wishlistElement" [idx]="i"></app-wishlist>
+    </div>
+  </div>
+  <div class="row">
+    <!-- redirect to new wishlist form   -->
+    <button class="btn btn-light" type="submit" id="save" style="cursor: pointer" (click)="onCreateWishlist()">Create Item</button>
+    <!-- cancel and redirect to profile -->
+    <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Wishlist } from '../wishlist.model';
 
 @Component({
   selector: 'app-wishlist-index',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wishlist-index.component.css']
 })
 export class WishlistIndexComponent implements OnInit {
+  myWishlists: Wishlist[] = [];
+  selectedWishlist: Wishlist;
+  wishlist: Wishlist;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onCreateWishlist() {
+
+    // redirect to new wishlist form
+
+  }
+
+  onCancel() {
+
+    // redirect to profile
+
+  }
 }

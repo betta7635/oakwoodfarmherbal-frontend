@@ -1,1 +1,18 @@
-<p>edit-wishlist works!</p>
+<div class="container-fluid" id="edit-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" style="text-align: center">
+      <h3>Edit My Wishlist Item</h3>
+    </div>
+  </div>
+  <div class="row">
+    <app-info-form *ngIf="selectedWishlist" [wishlist]="selectedWishlist"></app-info-form>
+  </div>
+</div>
+<div class="row">
+  <!-- save item id and redirect to id details -->
+  <button class="btn btn-light" type="submit" id="save" style="cursor: pointer" (click)="onSaveWishlist(wishlist)">Save Item</button>
+  <!-- cancel and redirect to id details -->
+  <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+  <!-- delete id and redirect to wishlist index -->
+  <button class="btn btn-light" type="button" id="delete" style="cursor: pointer" (click)="onDeleteWishlist(index)">Delete Item</button>
+</div>
