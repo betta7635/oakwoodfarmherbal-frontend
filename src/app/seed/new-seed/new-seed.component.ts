@@ -12,4 +12,15 @@ export class NewSeedComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSaveSeed(seed) {
+     // onsubmit(ngsubmit)??
+    // redirect to new seed id details
+
+  }
+
+  onCancel() {
+
+    // redirect to seed index
+
+  }
 }

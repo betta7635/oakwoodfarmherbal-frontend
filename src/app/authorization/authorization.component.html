@@ -1,43 +1,48 @@
 <!-- signup, login, logout -->
 <div class="container-fluid">
-  <body>
-    <!-- main title -->
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <h1>Access My Account</h1>
-      </div>
-    </div>
-    <!-- error message -->
-    <div class="row">
-      <div class="col-sm-12 col-md-6 offset-md-3">
-        <p class="alert alert-danger mt-3" *ngIf="error">{{ error }}</p>
-      </div>
-    </div>
-    <!-- form -->
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input class="form-control" type="email" id="email" name="email" #emailRef="ngModel" required ngModel email/>
-            <span class="help-block text-danger" *ngIf="!emailRef.valid && emailRef.touched">Please enter a valid email address.</span>
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <!-- main title -->
+      <h3 style="text-align: center">Access My Account</h3>
+      <!-- error message -->
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="alert alert-danger" *ngIf="error">
+            <p>{{ error }}</p>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input class="form-control" type="password" id="password" name="password" #passwordRef="ngModel" minlength="10" required ngModel/>
-            <span class="help-block text-danger" *ngIf="!passwordRef.valid && passwordRef.touched">Please enter a valid password of at least 10 characters in length.</span>
-          </div>
-          <!-- button row -->
-          <!-- signup button -->
-          <button type="submit" id="signup" style="cursor: pointer">{{ isLoginMode ? "Login" : "Sign Up" }}</button>
-          <!-- login button -->
-          <button type="button" id="login" style="cursor: pointer" (click)="onSwitchMode()">{{ isLoginMode ? "Sign Up" : "Login" }}</button>
-          <!-- cancel button -->
-          <button type="button" id="cancel" style="cursor: pointer">Cancel</button>
-          <!-- logout button -->
-          <button type="button" id="logout" style="cursor: pointer">Logout</button>
-        </form>
+        </div>
       </div>
+      <!-- form -->
+      <form #authForm="ngForm" >
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" type="email" id="email" name="email" ngModel required email/>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" id="password" name="password" minlength="10" ngModel required/>
+        </div>
+        <!-- button row -->
+        <!-- signup button -->
+        <div>
+          <button type="submit" id="signup" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button>
+        </div>
+        <!-- login button -->
+        <div>
+          <button type="button" id="login" [disabled]="!authForm.valid" (click)="onSwitchMode()">{{ isLoginMode ? 'Sign Up' : 'Login' }}</button>
+        </div>
+        <!-- cancel button -->
+        <div>
+          <button type="button" id="cancel">Cancel</button>
+        </div>
+        <!-- logout button -->
+        <div>
+          <button type="button" id="logout">Logout</button>
+        </div>
+      </form>
     </div>
-  </body>
+  </div>
 </div>
+
+
+

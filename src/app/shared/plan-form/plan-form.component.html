@@ -1,1 +1,59 @@
-<p>plan-form works!</p>
+<div class="container-fluid">
+  <!-- form -->
+  <form #planForm="ngForm" (ngSubmit)="onSubmit(planForm)">
+    <div formGroupName="planData">
+      <!-- image -->
+      <div class="form-group">
+        <div id="target">Drag and drop your image here.</div>
+        <label for="photoImagePath">Image Path</label>
+        <input class="form-control" type="file" accept="image/*" id="file-input" (change)="onSelectImage($event)" #selectFile ngModel/>
+        <!-- #selectFile is ref var to input file element - after clicking on button, input file will change the event and action will get initiated -->
+        <!-- SELECT IMAGE BUTTON ALLOWS SELECTION OF FILE FROM LOCAL DRIVE!! -->
+        <button class="btn btn-light" type="button" (click)="selectFile.click()">Select Image</button>
+        <!-- UPLOAD TO SERVER -->
+        <input class="form-control" type="file" (change)="onUploadFile($event)" #selectFile ngModel/>
+        <button class="btn btn-light" type="button" (click)="onUploadFile($event)">Upload Image</button>
+      </div>
+      <!-- plan data -->
+      <div class="form-group">
+        <label for="planName">Plan Name</label>
+        <input class="form-control" type="text" id="planName" formControlName="planName" ngModel required/>
+        <span class="help-block text-danger" *ngIf="!planForm.get('planData.planName').valid && planForm.get('planData.planName').touched">Please enter a valid plan name.</span>
+      </div>
+      <div class="form-group">
+        <label for="planLocation">Location</label>
+        <input class="form-control" type="text" id="planLocation" formControlName="planLocation" ngModel required/>
+        <span class="help-block text-danger" *ngIf="!planForm.get('planData.planLocation').valid && planForm.get('planData.planLocation').touched">Please enter a valid garden location.</span>
+      </div>
+      <div class="form-group">
+        <select name="plantInfo" (ngModelChange)="onInfoChanged($event)">
+          <option [ngValue]="null" disabled>Select Plant Used</option>
+          <option *ngFor="let plant of myPlants" [ngValue]="info.id">{{ info.primaryCommonName }}</option>
+        </select>
+        <!-- add plant id to garden plan -->
+        <button class="btn btn-light" type="submit" id="add" style="cursor: pointer" (click)="onAddPlant(index)">Add Plant</button>
+        <label for="amount">Amount</label>
+        <input class="form-control" type="number" id="amount" formControlName="amount" ngModel/>
+      </div>
+      <div class="form-group">
+        <select name="seedInfo" (ngModelChange)="onInfoChanged($event)">
+          <option [ngValue]="null" disabled>Select Seed Used</option>
+          <option *ngFor="let seed of mySeeds" [ngValue]="info.id">{{ info.primaryCommonName }}</option>
+        </select>
+        <!-- add seed id to garden plan -->
+        <button class="btn btn-light" type="submit" id="add" style="cursor: pointer" (click)="onAddSeed(index)">Add Seed</button>
+        <label for="amount">Amount</label>
+        <input class="form-control" type="number" id="amount" formControlName="amount" ngModel/>
+      </div>
+      <div class="form-group">
+        <label for="planDescription">Description</label>
+        <textarea class="form-control" rows="3" type="text" id="planDescription" formControlName="planDescription" ngModel></textarea>
+      </div>
+      <div class="form-group">
+        <label for="planNotes">Notes</label>
+        <textarea class="form-control" rows="5" type="text" id="planNotes" formControlName="planNotes" ngModel></textarea>
+      </div>
+    </div>
+  </form>
+</div>
+
