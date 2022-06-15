@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Plant } from '../plant/plant.model';
 import { Seed } from '../seed/seed.model';
 import { Info } from '../shared/info-form/info.model';
+import { InfoService } from '../shared/info-form/info.service';
 import { Wishlist } from '../wishlist/wishlist.model';
 
 @Component({
@@ -14,27 +15,34 @@ export class LibraryComponent implements OnInit {
   seed: Seed;
   wishlist: Wishlist;
   info: Info;
+  index: number;
+  idx: number;
 
-  constructor() { }
+  constructor(private infoservice: InfoService) { }
 
   ngOnInit(): void {
   }
 
   onSavePlant(plant) {
 
-    // redirect to plant index
+    // do not redirect
 
   }
 
   onSaveSeed(seed) {
 
-  //  redirect to seed index
+  // do not redirect
 
   }
 
   onSaveWishlist(wishlist) {
 
-    // redirect to wishlist index
+    // do not redirect
 
+  }
+
+  onCancel() {
+
+    // redirect to profile
   }
 }
