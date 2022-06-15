@@ -18,7 +18,7 @@ export class EditSeedComponent implements OnInit {
   }
 
   onSaveSeed(seed) {
-
+     // onsubmit(ngsubmit)??
     // redirect to new seed id details
 
   }

@@ -18,7 +18,7 @@ export class EditPlantComponent implements OnInit {
   }
 
   onSavePlant(plant) {
-
+    // onsubmit(ngsubmit)??
     // redirect to new plant id details
 
   }

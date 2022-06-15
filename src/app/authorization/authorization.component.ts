@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from './auth.service';
 
-
 @Component({
   selector: 'app-authorization',
   templateUrl: './authorization.component.html',
@@ -40,9 +39,8 @@ export class AuthorizationComponent implements OnInit {
           console.log(error);
           this.error = 'An error has occurred!';
         }
-      );
-      // reset form
-      form.reset();
+      )
     }
+    form.reset();
   }
 }

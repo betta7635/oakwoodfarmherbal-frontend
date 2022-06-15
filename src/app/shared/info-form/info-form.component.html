@@ -1,1 +1,56 @@
-<p>info-form works!</p>
+<div class="container-fluid">
+  <form #infoForm="ngForm" (ngSubmit)="onSubmit(infoForm)">
+    <div formGroupName="plantData">
+      <!-- image -->
+      <div class="info-group">
+        <div id="target">Drag and drop your image here.</div>
+        <label for="photoImagePath">Image Path</label>
+        <input class="form-control" type="file" accept="image/*" id="file-input" (change)="onSelectImage($event)" #selectFile ngModel/>
+        <!-- #selectFile is ref var to input file element - after clicking on button, input file will change the event and action will get initiated -->
+        <!-- SELECT IMAGE BUTTON ALLOWS SELECTION OF FILE FROM LOCAL DRIVE!! -->
+        <button class="btn btn-light" type="button" (click)="selectFile.click()">Select Image</button>
+        <!-- UPLOAD TO SERVER -->
+        <input class="form-control" type="file" (change)="onUploadFile($event)" #selectFile ngModel/>
+        <button class="btn btn-light" type="button" (click)="onUploadFile($event)">Upload Image</button>
+      </div>
+      <!-- plant data -->
+      <div class="form-group">
+        <label for="primaryCommonName">Common Plant Name</label>
+        <input class="form-control" type="text" id="primaryCommonName" formControlName="primaryCommonName" ngModel required/>
+        <span class="help-block text-danger" *ngIf="!infoForm.get('plantData.primaryCommonName').valid && infoForm.get('infoData.primaryCommonName').touched">Please enter a valid plant name.</span>
+      </div>
+      <div class="form-group">
+        <label for="formattedScientificName">Scientific Name</label>
+        <input class="form-control" type="text" id="formattedScientificName" formControlName="formattedScientificName" ngModel/>
+      </div>
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input class="form-control" type="text" id="color" formControlName="color" ngModel/>
+      </div>
+      <div class="form-group">
+        <label for="duration">Life Cycle</label>
+        <input class="form-control" type="text" id="duration" formControlName="duration" ngModel/>
+      </div>
+      <div class="form-group">
+        <label for="source">Source</label>
+        <input class="form-control" type="text" id="source" formControlName="source" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" rows="3" type="text" id="description" formControlName="description" ngModel></textarea>
+      </div>
+      <div class="form-group">
+        <label for="uses">Uses</label>
+        <textarea class="form-control" rows="3" type="text" id="uses" formControlName="uses" ngModel></textarea>
+      </div>
+      <div class="form-group">
+        <label for="conservationInfo">History and Conservation</label>
+        <textarea class="form-control" type="text" rows="5" id="conservationInfo" formControlName="conservationInfo" ngModel></textarea>
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea class="form-control" type="text" rows="5" id="notes" formControlName="notes" ngModel></textarea>
+      </div>
+    </div>
+  </form>
+</div>

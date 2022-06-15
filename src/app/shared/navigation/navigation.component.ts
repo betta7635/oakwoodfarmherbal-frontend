@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navigation',
@@ -13,5 +14,4 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
