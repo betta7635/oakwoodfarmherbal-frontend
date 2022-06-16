@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plant } from '../plant/plant.model';
 import { Seed } from '../seed/seed.model';
 import { Info } from '../shared/info-form/info.model';
@@ -18,7 +19,7 @@ export class LibraryComponent implements OnInit {
   index: number;
   idx: number;
 
-  constructor(private infoservice: InfoService) { }
+  constructor(private infoservice: InfoService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +43,7 @@ export class LibraryComponent implements OnInit {
   }
 
   onCancel() {
-
     // redirect to profile
+    this.router.navigate(['profile']);
   }
 }

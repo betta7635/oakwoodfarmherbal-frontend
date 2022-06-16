@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { EditPlanComponent } from './plan/edit-plan/edit-plan.component';
+import { EditPlantComponent } from './plant/edit-plant/edit-plant.component';
 import { EditSeedComponent } from './seed/edit-seed/edit-seed.component';
 import { EditWishlistComponent } from './wishlist/edit-wishlist/edit-wishlist.component';
-import { EditPlantComponent } from './plant/edit-plant/edit-plant.component';
 import { HomeComponent } from './home/home.component';
 import { InfoFormComponent } from './shared/info-form/info-form.component';
 import { LibraryComponent } from './library/library.component';
@@ -69,8 +71,10 @@ import { WishlistIndexComponent } from './wishlist/wishlist-index/wishlist-index
     WishlistIndexComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
   ],
   providers: [],
