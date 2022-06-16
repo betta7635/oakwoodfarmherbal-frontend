@@ -15,6 +15,7 @@ export interface AuthResponseData {
   last_name: string;
   expiry: string;
   value: string;
+  registered?: boolean;
 }
 @Injectable({
   providedIn: 'root',
@@ -23,7 +24,7 @@ export class AuthService {
   currentUser = new BehaviorSubject<User>(null);
   userToken: string = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   signUp(email: string, password: string) {
     return this.http.post<AuthResponseData>("SIGN_UP_URL + AUTH_API_KEY", {
@@ -37,6 +38,11 @@ export class AuthService {
         this.handleAuth(email, id, expiry, value);
       })
     );
+    return this.http.post<AuthResponseData>(SIGN_UP_URL + AUTH_API_KEY, {
+      email: email,
+      password: password,
+      returnSecureToken: true,
+    });
   }
 
   login(email: string, password: string) {
@@ -51,6 +57,7 @@ export class AuthService {
         this.handleAuth(email, id, expiry, value);
       })
     );
+    });
   }
 
   handleAuth(email: string, id: number, expiry: string, value: string) {
@@ -62,6 +69,6 @@ export class AuthService {
 
   logout() {
     // redirect to authorization page
-
+    this.router.navigate(['authorization']);
   }
 }

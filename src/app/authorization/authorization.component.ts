@@ -13,6 +13,7 @@ export class AuthorizationComponent implements OnInit {
   isLoginMode: boolean = true;
   isAuthenticated: boolean = false;
   error: string;
+  authObsrv: Observable<AuthResponseData>;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -29,10 +30,17 @@ export class AuthorizationComponent implements OnInit {
     }
     const email = form.value.email;
     const password = form.value.password;
+    
+    if (!formObj.valid) return;
+    const { email, password } = formObj.value;
+
     if (this.isLoginMode) {
       // login logic
-
+      this.authObsrv = this.authService.login(email, password);
     } else {
+      // signup logic
+      this.authObsrv = this.authService.signUp(email, password);
+    }
     this.authObsrv.subscribe(
       (responseData) => {
         console.log("success response:", responseData);

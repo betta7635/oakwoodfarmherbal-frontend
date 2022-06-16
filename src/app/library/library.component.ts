@@ -48,5 +48,6 @@ export class LibraryComponent implements OnInit {
 
     onCancel() {
     // redirect to profile
+    this.router.navigate(['profile']);
   }
 }
