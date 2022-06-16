@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Wishlist } from '../wishlist.model';
-import { WishlistService } from '../wishlist.service';
+import { LibraryService } from 'src/app/library/library.service';
+import { Info } from 'src/app/shared/info-form/info.model';
 
 @Component({
   selector: 'app-wishlist-index',
@@ -9,24 +9,24 @@ import { WishlistService } from '../wishlist.service';
   styleUrls: ['./wishlist-index.component.css']
 })
 export class WishlistIndexComponent implements OnInit {
-  myWishlists: Wishlist[] = [];
-  selectedWishlist: Wishlist;
-  wishlist: Wishlist;
+  myInfos: Info[] = [];
+  selectedInfo: Info;
+  info: Info;
   idx: number;
 
-  constructor(private wishlistService: WishlistService, private route: ActivatedRoute) { }
+  constructor(private libraryService: LibraryService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.idx = +params['id'];
-      this.wishlist = this.wishlistService.getWishlist(this.idx);
+      this.info = this.libraryService.getInfo(this.idx);
     });
-    this.myWishlists = this.wishlistService.getWishlists();
-    this.wishlistService.wishlistSelected.subscribe((wishlist: Wishlist) => {
-      this.selectedWishlist = wishlist;
+    this.myInfos = this.libraryService.getInfos();
+    this.libraryService.infoChanged.subscribe((infos: Info[]) => {
+      this.myInfos = infos;
     });
-    this.wishlistService.wishlistIndexChanged.subscribe((wishlists: Wishlist[]) => {
-      this.myWishlists = wishlists;
+    this.libraryService.infoSelected.subscribe((info: Info) => {
+      this.selectedInfo = info;
     });
   }
 

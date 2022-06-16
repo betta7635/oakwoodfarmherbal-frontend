@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { LibraryService } from 'src/app/library/library.service';
+import { Info } from 'src/app/shared/info-form/info.model';
 import { Seed } from '../seed.model';
 import { SeedService } from '../seed.service';
 
@@ -9,24 +11,24 @@ import { SeedService } from '../seed.service';
   styleUrls: ['./seed-index.component.css']
 })
 export class SeedIndexComponent implements OnInit {
-  mySeeds: Seed[] = [];
-  selectedSeed: Seed;
-  seed: Seed;
+  myInfos: Info[] = [];
+  selectedInfo: Info;
+  info: Info;
   idx: number;
 
-  constructor(private seedService: SeedService, private route: ActivatedRoute) { }
+  constructor(private libraryService: LibraryService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.idx = +params['id'];
-      this.seed = this.seedService.getSeed(this.idx);
+      this.info = this.libraryService.getInfo(this.idx);
     });
-    this.mySeeds = this.seedService.getSeeds();
-    this.seedService.seedSelected.subscribe((seed: Seed) => {
-      this.selectedSeed = seed;
+    this.myInfos = this.libraryService.getInfos();
+    this.libraryService.infoChanged.subscribe((infos: Info[]) => {
+      this.myInfos = infos;
     });
-    this.seedService.seedIndexChanged.subscribe((seeds: Seed[]) => {
-      this.mySeeds = seeds;
+    this.libraryService.infoSelected.subscribe((info: Info) => {
+      this.selectedInfo = info;
     });
   }
 

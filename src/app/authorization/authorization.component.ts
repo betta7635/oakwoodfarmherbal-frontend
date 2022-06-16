@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
   selector: 'app-authorization',
@@ -9,9 +11,10 @@ import { AuthService } from './auth.service';
 })
 export class AuthorizationComponent implements OnInit {
   isLoginMode: boolean = true;
+  isAuthenticated: boolean = false;
   error: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,8 +23,8 @@ export class AuthorizationComponent implements OnInit {
     this.isLoginMode = !this.isLoginMode;
   }
 
-  onSubmit(form: NgForm) {
-    if (!form.valid) {
+  onSubmit(formObj: NgForm) {
+    if (!formObj.valid) {
       return;
     }
     const email = form.value.email;
@@ -30,17 +33,22 @@ export class AuthorizationComponent implements OnInit {
       // login logic
 
     } else {
-      // signup logic
-      this.authService.signUp(email, password).subscribe(
-        responseData => {
-          console.log(responseData);
-        },
-        error => {
-          console.log(error);
-          this.error = 'An error has occurred!';
-        }
-      )
-    }
-    form.reset();
+    this.authObsrv.subscribe(
+      (responseData) => {
+        console.log("success response:", responseData);
+        if (this.error) this.error = null;
+        this.router.navigate(['profile']);
+      },
+      (error) => {
+        console.log("error response:", error);
+        this.error = "An error has occurred!";
+      }
+    );
+    formObj.reset();
+  }
+
+  onCancel() {
+    // redirect to home
+    this.router.navigate(['home']);
   }
 }
