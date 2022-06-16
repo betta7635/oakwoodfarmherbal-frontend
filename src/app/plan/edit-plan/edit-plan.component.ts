@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { LibraryService } from 'src/app/library/library.service';
+import { Info } from 'src/app/shared/info-form/info.model';
 import { Plan } from '../plan.model';
 import { PlanService } from '../plan.service';
 
@@ -12,10 +14,13 @@ export class EditPlanComponent implements OnInit {
   myPlans: Plan[] = [];
   selectedPlan: Plan;
   plan: Plan;
+  myInfos: Info[] = [];
+  selectedInfo: Info;
+  info: Info;
   index: number;
   idx: number;
 
-  constructor(private planService: PlanService, private route: ActivatedRoute) { }
+  constructor(private planService: PlanService, private libraryService: LibraryService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -28,6 +33,18 @@ export class EditPlanComponent implements OnInit {
     });
     this.planService.planSelected.subscribe((plan: Plan) => {
       this.selectedPlan = plan;
+    });
+    // plant and seed selection
+    this.route.params.subscribe((params: Params) => {
+      this.idx = +params['id'];
+      this.info = this.libraryService.getInfo(this.idx);
+    });
+    this.myInfos = this.libraryService.getInfos();
+    this.libraryService.infoChanged.subscribe((infos: Info[]) => {
+      this.myInfos = infos;
+    });
+    this.libraryService.infoSelected.subscribe((info: Info) => {
+      this.selectedInfo = info;
     });
   }
 

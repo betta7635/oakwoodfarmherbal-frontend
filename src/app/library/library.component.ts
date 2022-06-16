@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Plant } from '../plant/plant.model';
 import { Seed } from '../seed/seed.model';
 import { Info } from '../shared/info-form/info.model';
-import { InfoService } from '../shared/info-form/info.service';
 import { Wishlist } from '../wishlist/wishlist.model';
+import { LibraryService } from './library.service';
 
 @Component({
   selector: 'app-library',
@@ -12,37 +12,41 @@ import { Wishlist } from '../wishlist/wishlist.model';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent implements OnInit {
-  plant: Plant;
-  seed: Seed;
-  wishlist: Wishlist;
+  myInfos: Info[] = [];
   info: Info;
-  index: number;
+  selectedInfo: Info;
   idx: number;
 
-  constructor(private infoservice: InfoService, private router: Router) { }
+  constructor(private libraryService: LibraryService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.idx = +params['id'];
+      this.info = this.libraryService.getInfo(this.idx);
+    });
+    this.myInfos = this.libraryService.getInfos();
+    this.libraryService.infoChanged.subscribe((infos: Info[]) => {
+      this.myInfos = infos;
+    });
+    this.libraryService.infoSelected.subscribe((info: Info) => {
+      this.selectedInfo = info;
+    });
   }
 
-  onSavePlant(plant) {
-
+  onSavePlant(info) {
+    this.libraryService.saveInfo(info);
     // do not redirect
-
   }
-
-  onSaveSeed(seed) {
-
+  onSaveSeed(info) {
+    this.libraryService.saveInfo(info);
   // do not redirect
-
   }
-
-  onSaveWishlist(wishlist) {
-
+  onSaveWishlist(info) {
+    this.libraryService.saveInfo(info);
     // do not redirect
-
   }
 
-  onCancel() {
+    onCancel() {
     // redirect to profile
     this.router.navigate(['profile']);
   }

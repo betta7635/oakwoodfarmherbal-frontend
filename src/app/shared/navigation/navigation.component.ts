@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/authorization/auth.service';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,8 +11,15 @@ export class NavigationComponent implements OnInit {
   collapsed: boolean = true;
   isAuthenticated: boolean = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.currentUser.subscribe((user) => {
+      this.isAuthenticated = !!user;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.authService.currentUser.unsubscribe();
   }
 }

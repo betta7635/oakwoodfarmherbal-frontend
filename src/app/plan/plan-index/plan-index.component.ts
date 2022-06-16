@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LibraryService } from 'src/app/library/library.service';
+import { Info } from 'src/app/shared/info-form/info.model';
 import { Plan } from '../plan.model';
 import { PlanService } from '../plan.service';
 
@@ -12,7 +15,7 @@ export class PlanIndexComponent implements OnInit {
   selectedPlan: Plan;
   plan: Plan;
 
-  constructor(private planService: PlanService) { }
+  constructor(private planService: PlanService, private router: Router) { }
 
   ngOnInit(): void {
     this.myPlans = this.planService.getPlans();
@@ -21,7 +24,7 @@ export class PlanIndexComponent implements OnInit {
     });
     this.planService.planSelected.subscribe((plan: Plan) => {
       this.selectedPlan = plan;
-    })
+    });
 
   }
 
