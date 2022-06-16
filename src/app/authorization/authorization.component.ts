@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
+import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
   selector: 'app-authorization',
@@ -10,6 +11,7 @@ import { AuthService } from './auth.service';
 export class AuthorizationComponent implements OnInit {
   isLoginMode: boolean = true;
   error: string;
+  authObsrv: Observable<AuthResponseData>;
 
   constructor(private authService: AuthService) { }
 
@@ -20,27 +22,27 @@ export class AuthorizationComponent implements OnInit {
     this.isLoginMode = !this.isLoginMode;
   }
 
-  onSubmit(form: NgForm) {
-    if (!form.valid) {
-      return;
-    }
-    const email = form.value.email;
-    const password = form.value.password;
+  onSubmit(formObj: NgForm) {
+    if (!formObj.valid) return;
+    const { email, password } = formObj.value;
+
     if (this.isLoginMode) {
       // login logic
-
+      this.authObsrv = this.authService.login(email, password);
     } else {
       // signup logic
-      this.authService.signUp(email, password).subscribe(
-        responseData => {
-          console.log(responseData);
-        },
-        error => {
-          console.log(error);
-          this.error = 'An error has occurred!';
-        }
-      )
+      this.authObsrv = this.authService.signUp(email, password);
     }
-    form.reset();
+    this.authObsrv.subscribe(
+      (responseData) => {
+        console.log("success response:", responseData);
+        if (this.error) this.error = null;
+      },
+      (error) => {
+        console.log("error response:", error);
+        this.error = "An error has occurred!";
+      }
+    );
+    formObj.reset();
   }
 }

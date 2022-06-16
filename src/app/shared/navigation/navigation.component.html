@@ -7,11 +7,11 @@
     <ul class="navbar-nav mr-auto">
       <!-- home -->
       <li class="nav-item active">
-        <a class="nav-link" style="cursor: pointer">Home</a>
+        <a class="nav-link" style="cursor: pointer" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
       <!-- authorization -->
       <li class="nav-item">
-        <a class="nav-link" style="cursor: pointer">My Account</a>
+        <a class="nav-link" style="cursor: pointer" routerLink="/authorization">My Account</a>
       </li>
       <!-- if logged in -->
       <li class="nav-item" *ngIf="isAuthenticated">
