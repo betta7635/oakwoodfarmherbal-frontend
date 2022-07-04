@@ -34,8 +34,21 @@
 }
 button {
   margin: 2%;
+  border-radius: 10%;
+  color: black;
 }
 button:hover {
   font-family: "Lucida Handwriting", cursive;
+  color: green;
+}
+#signup {
+  background-color: var(--background);
+  border: 2px solid var(--background);
+}
+#login {
+  background-color: var(--login);
+  border: 2px solid var(--login);
+}
+p {
   color: green;
 }

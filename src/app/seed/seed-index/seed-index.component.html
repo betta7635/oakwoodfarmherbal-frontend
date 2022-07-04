@@ -11,14 +11,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4 col-md-4" *ngFor="let seedElement of mySeeds; let i=index">
-      <app-seed [seed]="seedElement" [idx]="i"></app-seed>
+    <div class="col-sm-4 col-md-4">
+      <app-seed></app-seed>
     </div>
   </div>
   <div class="row">
     <!-- redirect to new seed form   -->
-    <button class="btn btn-light" type="submit" id="save" style="cursor: pointer" (click)="onCreateSeed()">Create Seed</button>
+    <button type="submit" id="save" style="cursor: pointer" (click)="onCreateSeed()">Create Seed</button>
     <!-- cancel and return to profile -->
-    <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+    <button type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
   </div>
 </div>

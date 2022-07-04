@@ -12,7 +12,7 @@ import { AuthResponseData, AuthService } from './auth.service';
 export class AuthorizationComponent implements OnInit {
   isLoginMode: boolean = true;
   isAuthenticated: boolean = false;
-  error: string;
+  errorMsg: string = null;
   authObsrv: Observable<AuthResponseData>;
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -25,12 +25,6 @@ export class AuthorizationComponent implements OnInit {
   }
 
   onSubmit(formObj: NgForm) {
-    if (!formObj.valid) {
-      return;
-    }
-    const email = form.value.email;
-    const password = form.value.password;
-    
     if (!formObj.valid) return;
     const { email, password } = formObj.value;
 
@@ -39,24 +33,32 @@ export class AuthorizationComponent implements OnInit {
       this.authObsrv = this.authService.login(email, password);
     } else {
       // signup logic
-      this.authObsrv = this.authService.signUp(email, password);
+      this.authObsrv = this.authService.signup(email, password);
     }
+    // error handling
     this.authObsrv.subscribe(
       (responseData) => {
-        console.log("success response:", responseData);
-        if (this.error) this.error = null;
+        console.log("Success Response:", responseData);
+        if (this.errorMsg) this.errorMsg = null;
+        // redirect to profile
         this.router.navigate(['profile']);
       },
       (error) => {
-        console.log("error response:", error);
-        this.error = "An error has occurred!";
+        console.log("Error Response:", error);
+        this.errorMsg = error.message;
       }
     );
     formObj.reset();
-  }
+    }
 
-  onCancel() {
-    // redirect to home
-    this.router.navigate(['home']);
+    onCancel() {
+      // redirect to home
+      this.router.navigate(['home']);
+    }
+
+    onLogout() {
+      this.authService.logout();
+      // redirect to home
+      this.router.navigate(['home']);
+    }
   }
-}

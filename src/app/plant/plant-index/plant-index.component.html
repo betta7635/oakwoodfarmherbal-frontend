@@ -11,15 +11,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4 col-md-4" *ngFor="let plantElement of myPlants; let i=index">
-      <app-plant [plant]="plantElement" [idx]="i"></app-plant>
+    <div class="col-sm-4 col-md-4">
+      <app-plant></app-plant>
     </div>
   </div>
   <div class="row">
     <!-- redirect to new plant form   -->
-    <button class="btn btn-light" type="submit" id="save" style="cursor: pointer" (click)="onCreatePlant()">Create Plant</button>
+    <button type="submit" id="save" style="cursor: pointer" (click)="onCreatePlant()">Create Plant</button>
     <!-- cancel and redirect to profile -->
-    <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+    <button type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
   </div>
 </div>
 

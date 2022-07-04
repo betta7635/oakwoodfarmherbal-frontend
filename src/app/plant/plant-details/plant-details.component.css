@@ -1,0 +1,15 @@
+.container-fluid {
+  background-color: var(--background);
+}
+#edit {
+  background-color: var(--edit);
+  border: 2px solid var(--edit);
+}
+#cancel {
+  background-color: var(--cancel);
+  border: 2px solid var(--cancel);
+}
+#delete {
+  background-color: var(--delete);
+  border: 2px solid var(--delete);
+}

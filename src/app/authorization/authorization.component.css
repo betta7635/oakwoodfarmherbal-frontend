@@ -1,0 +1,23 @@
+button {
+  margin: 2%;
+  border-radius: 10%;
+  color: black;
+}
+button:hover {
+  font-family: "Lucida Handwriting", cursive;
+  color: green;
+}
+p {
+  color: green;
+}
+.container-fluid {
+  background-color: var(--background);
+}
+#signup {
+  background-color: var(--signup);
+  border: 2px solid var(--signup);
+}
+#cancel {
+  background-color: var(--cancel);
+  border: 2px solid var(--cancel);
+}

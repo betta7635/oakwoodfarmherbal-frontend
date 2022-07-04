@@ -9,10 +9,10 @@
         <input class="form-control" type="file" accept="image/*" id="file-input" (change)="onSelectImage($event)" #selectFile ngModel/>
         <!-- #selectFile is ref var to input file element - after clicking on button, input file will change the event and action will get initiated -->
         <!-- SELECT IMAGE BUTTON ALLOWS SELECTION OF FILE FROM LOCAL DRIVE!! -->
-        <button class="btn btn-light" type="button" (click)="selectFile.click()">Select Image</button>
+        <button type="button" (click)="selectFile.click()">Select Image</button>
         <!-- UPLOAD TO SERVER -->
         <input class="form-control" type="file" (change)="onUploadFile($event)" #selectFile ngModel/>
-        <button class="btn btn-light" type="button" (click)="onUploadFile($event)">Upload Image</button>
+        <button type="button" (click)="onUploadFile($event)">Upload Image</button>
       </div>
       <!-- plan data -->
       <div class="form-group">
@@ -31,7 +31,7 @@
           <option *ngFor="let plant of myPlants" [ngValue]="info.id">{{ info.primaryCommonName }}</option>
         </select>
         <!-- add plant id to garden plan -->
-        <button class="btn btn-light" type="submit" id="add" style="cursor: pointer" (click)="onAddPlant(index)">Add Plant</button>
+        <button type="submit" id="add" style="cursor: pointer" (click)="onAddPlant(index)">Add Plant</button>
         <label for="amount">Amount</label>
         <input class="form-control" type="number" id="amount" formControlName="amount" ngModel/>
       </div>
@@ -41,7 +41,7 @@
           <option *ngFor="let seed of mySeeds" [ngValue]="info.id">{{ info.primaryCommonName }}</option>
         </select>
         <!-- add seed id to garden plan -->
-        <button class="btn btn-light" type="submit" id="add" style="cursor: pointer" (click)="onAddSeed(index)">Add Seed</button>
+        <button type="submit" id="add" style="cursor: pointer" (click)="onAddSeed(index)">Add Seed</button>
         <label for="amount">Amount</label>
         <input class="form-control" type="number" id="amount" formControlName="amount" ngModel/>
       </div>

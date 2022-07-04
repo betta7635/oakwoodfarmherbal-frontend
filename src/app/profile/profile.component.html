@@ -12,7 +12,7 @@
       <div class="card">
         <div class="card-header">
           <!-- redirect to view plan index -->
-          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/plan-index" routerLinkActive="active">My Garden Plans</a>
+          <a id="view" style="cursor: pointer" routerLink="/plan-index" routerLinkActive="active">My Garden Plans</a>
         </div>
         <div class="card-body">
           <h5 *ngIf="isAuthenticated">Plan Count: {{ currentUser.planCount }}</h5>
@@ -22,7 +22,7 @@
       <div class="card">
         <div class="card-header">
           <!-- redirect to view plant index -->
-          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/plant-index" routerLinkActive="active">My Plant Collection</a>
+          <a id="view" style="cursor: pointer" routerLink="/plant-index">My Plant Collection</a>
         </div>
         <div class="card-body">
           <h5 *ngIf="isAuthenticated">Plant Count: {{ currentUser.plantCount }}</h5>
@@ -32,7 +32,7 @@
       <div class="card">
         <div class="card-header">
           <!-- redirect to view seed index -->
-          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/seed-index" routerLinkActive="active">My Seed Collection</a>
+          <a id="view" style="cursor: pointer" routerLink="/seed-index">My Seed Collection</a>
         </div>
         <div class="card-body">
           <h5 *ngIf="isAuthenticated">Seed Count: {{ currentUser.seedCount }}</h5>
@@ -42,7 +42,7 @@
       <div class="card">
         <div class="card-header">
           <!-- redirect to view wishlist index -->
-          <a class="btn btn-light" id="view" style="cursor: pointer" routerLink="/wishlist-index" routerLinkActive="active">My Wishlist</a>
+          <a id="view" style="cursor: pointer" routerLink="/wishlist-index">My Wishlist</a>
         </div>
         <div class="card-body">
           <h5 *ngIf="isAuthenticated">Wishlist Item Count: {{ currentUser.wishlistCount}}</h5>

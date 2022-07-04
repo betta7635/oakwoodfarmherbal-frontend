@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/authorization/auth.service';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navigation',

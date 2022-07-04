@@ -1,7 +1,7 @@
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ import { UserComponent } from './shared/user/user.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { WishlistDetailsComponent } from './wishlist/wishlist-details/wishlist-details.component';
 import { WishlistIndexComponent } from './wishlist/wishlist-index/wishlist-index.component';
+import { AuthInterceptorService } from './authorization/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,13 @@ import { WishlistIndexComponent } from './wishlist/wishlist-index/wishlist-index
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

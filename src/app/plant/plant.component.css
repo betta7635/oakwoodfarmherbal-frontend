@@ -1,0 +1,7 @@
+.container-fluid {
+  background-color: var(--background);
+}
+#view {
+  background-color: var(--view);
+  border: 2px solid var(--view);
+}

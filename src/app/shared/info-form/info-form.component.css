@@ -1,0 +1,11 @@
+.container-fluid {
+  background-color: var(--background);
+}
+#select {
+  background-color: var(--view);
+  border: 2px solid var(--view);
+}
+#upload {
+  background-color: var(--save);
+  border: 2px solid var(--save);
+}

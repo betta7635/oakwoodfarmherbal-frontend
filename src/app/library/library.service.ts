@@ -19,6 +19,12 @@ export class LibraryService {
     return this.myInfos.slice()[idx];
   }
 
+  setInfos(infos: Info[] | []) {
+    console.log('%c infos:', 'color: red;', infos);
+    this.myInfos = infos || [];
+    this.infoChanged.next(this.myInfos.slice());
+  }
+
   saveInfo(info: Info) {
     this.myInfos.push(info);
     this.infoChanged.emit(this.myInfos.slice());

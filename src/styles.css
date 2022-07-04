@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --background: #f2e9f7;
+  --signup: rgb(195, 245, 195);
+  --login: rgb(203, 228, 250);
+  --logout: rgb(249, 219, 223);
+  --cancel: rgb(245, 251, 206);
+  --edit: rgb(203, 228, 250);
+  --delete: rgb(249, 219, 223);
+  --save: rgb(195, 245, 195);
+  --view: rgb(245, 251, 206);
+}
+button {
+  margin: 2%;
+  border-radius: 10%;
+  color: black;
+}
+button:hover {
+  font-family: "Lucida Handwriting", cursive;
+  color: green;
+}
+h3 {
+  color: green;
+}

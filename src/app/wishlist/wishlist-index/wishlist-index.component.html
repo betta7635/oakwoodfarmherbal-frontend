@@ -11,14 +11,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4 col-md-4" *ngFor="let wishlistElement of myWishlists; let i=index">
-      <app-wishlist [wishlist]="wishlistElement" [idx]="i"></app-wishlist>
+    <div class="col-sm-4 col-md-4">
+      <app-wishlist></app-wishlist>
     </div>
   </div>
   <div class="row">
     <!-- redirect to new wishlist form   -->
-    <button class="btn btn-light" type="submit" id="save" style="cursor: pointer" (click)="onCreateWishlist()">Create Item</button>
+    <button type="submit" id="save" style="cursor: pointer" (click)="onCreateWishlist()">Create Item</button>
     <!-- cancel and redirect to profile -->
-    <button class="btn btn-light" type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
+    <button type="button" id="cancel" style="cursor: pointer" (click)="onCancel()">Cancel</button>
   </div>
 </div>
